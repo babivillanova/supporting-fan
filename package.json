@@ -20,8 +20,7 @@
     "test": "jest",
     "travis": "npm test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "precommit": "lint-staged",
-    "start": "node examples/tutorial/00-get-access-token.js"
-
+    "start": "node index.js"
   },
   "jest": {
     "verbose": true,
