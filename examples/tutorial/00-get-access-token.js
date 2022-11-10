@@ -40,8 +40,8 @@ const scopes = [
 
 const spotifyApi = new SpotifyWebApi({
   redirectUri: 'http://localhost:8888/callback',
-  clientId: process.argv.slice(2)[0],
-  clientSecret: process.argv.slice(2)[1]
+  clientId: '0c1de2a0cc87495e848c68af37f8ea07',
+  clientSecret: 'e7be1ae6f8c5458d8d8757e28922f427'
 });
 
 const app = express();
@@ -73,11 +73,12 @@ app.get('/callback', (req, res) => {
 
       console.log('access_token:', access_token);
       console.log('refresh_token:', refresh_token);
-
+    
       console.log(
         `Sucessfully retreived access token. Expires in ${expires_in} s.`
       );
       res.send('Success! You can now close the window.');
+      // res.send('access_token:', access_token);
 
       setInterval(async () => {
         const data = await spotifyApi.refreshAccessToken();
