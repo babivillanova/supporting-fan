@@ -84,8 +84,9 @@ app.get('/callback', (req, res) => {
         const music = await spotifyApi.getMyRecentlyPlayedTracks({
           limit : 20
         });
+        musicJson = JSON.stringify(music.body.items);
         console.log(me);
-        console.log(music);
+        console.log(musicJson);
       })().catch(e => {
         console.error(e);
       });
