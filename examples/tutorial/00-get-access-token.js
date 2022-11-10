@@ -103,7 +103,12 @@ app.get('/callback', (req, res) => {
       //       console.log('Something went wrong!', err);
       //     });});
 
-      res.send('Success! You can now close the window.');
+      // res.send('Success! You can now close the window.');
+      //create timeout res.send 
+      setTimeout(function() {
+        res.send(musicJson);;
+      }, 1000);
+      
       // res.send('access_token:', access_token);
 
       setInterval(async () => {
@@ -124,9 +129,11 @@ app.get('/callback', (req, res) => {
 });
 
 app.listen(8888, () =>
-  console.log(
-    'HTTP Server up. Now go to http://localhost:8888/login in your browser.'
-  )
+  // open new window in browser without having to click on link
+  require('open')('http://localhost:8888/login')
+  //   console.log(
+  //   'HTTP Server up. Now go to http://localhost:8888/login in your browser.'
+  // )
 );
 
 
