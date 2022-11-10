@@ -77,6 +77,15 @@ app.get('/callback', (req, res) => {
       console.log(
         `Sucessfully retreived access token. Expires in ${expires_in} s.`
       );
+
+
+      (async () => {
+        const me = await spotifyApi.getMe();
+        console.log(me);
+      })().catch(e => {
+        console.error(e);
+      });
+
       res.send('Success! You can now close the window.');
       // res.send('access_token:', access_token);
 
@@ -87,6 +96,8 @@ app.get('/callback', (req, res) => {
         console.log('The access token has been refreshed!');
         console.log('access_token:', access_token);
         spotifyApi.setAccessToken(access_token);
+        //export access_token to be used in other files
+        module.exports = access_token;
       }, expires_in / 2 * 1000);
     })
     .catch(error => {
@@ -100,3 +111,5 @@ app.listen(8888, () =>
     'HTTP Server up. Now go to http://localhost:8888/login in your browser.'
   )
 );
+
+
