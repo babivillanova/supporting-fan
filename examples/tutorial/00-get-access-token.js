@@ -81,10 +81,26 @@ app.get('/callback', (req, res) => {
 
       (async () => {
         const me = await spotifyApi.getMe();
+        const music = await spotifyApi.getMyRecentlyPlayedTracks({
+          limit : 20
+        });
         console.log(me);
+        console.log(music);
       })().catch(e => {
         console.error(e);
       });
+
+      // (async () => {
+      //   const music = await spotifyApi.getMyRecentlyPlayedTracks({
+      //     limit : 20
+      //   }).then(function(data) {
+      //       // Output items
+      //       console.log("Your 20 most recently played tracks are:");
+      //       console.log(music);
+      //       data.body.items.forEach(item => console.log(item.track));
+      //     }, function(err) {
+      //       console.log('Something went wrong!', err);
+      //     });});
 
       res.send('Success! You can now close the window.');
       // res.send('access_token:', access_token);
