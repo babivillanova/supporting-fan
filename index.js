@@ -134,7 +134,7 @@ app.get('/callback', (req, res) => {
 
 app.listen(8888, () =>
   // open new window in browser without having to click on link
-  require('open')('http://localhost:8888/login')
+  require('open')('https://supporting-7m1xrgato-babivillanova.vercel.app/login')
   //   console.log(
   //   'HTTP Server up. Now go to http://localhost:8888/login in your browser.'
   // )
