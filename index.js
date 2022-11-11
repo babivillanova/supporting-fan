@@ -84,9 +84,19 @@ app.get('/callback', (req, res) => {
         const music = await spotifyApi.getMyRecentlyPlayedTracks({
           limit : 20
         });
-        musicJson = JSON.stringify(music.body.items);
+        musicJson = JSON.stringify(music.body.items); 
+        // (artist1,artist2,artist3)
         console.log(me);
         console.log(musicJson);
+        //map musicJson to get artist names
+        const artists = [];
+        for (i=0; i<music.length; i++) {
+        artists.push(music[i].track.artists[0].name)
+        }
+        const artistsString = artists.join(',')
+        console.log(artistsString);
+
+        
       })().catch(e => {
         console.error(e);
       });
@@ -106,7 +116,7 @@ app.get('/callback', (req, res) => {
       // res.send('Success! You can now close the window.');
       //create timeout res.send 
       setTimeout(function() {
-        res.send(musicJson);
+        res.send(artistsString);
         // res.sendFile('music.html', { root: __dirname });
       }, 1000);
 
