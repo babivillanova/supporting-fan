@@ -39,7 +39,7 @@ const scopes = [
 ];
 
 const spotifyApi = new SpotifyWebApi({
-  redirectUri: 'http://localhost:8888/callback/',
+  redirectUri: 'https://supporting-fan.vercel.app/callback/',
   clientId: '0c1de2a0cc87495e848c68af37f8ea07',
   clientSecret: 'e7be1ae6f8c5458d8d8757e28922f427'
 });
