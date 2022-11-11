@@ -90,8 +90,8 @@ app.get('/callback', (req, res) => {
         console.log(musicJson);
         //map musicJson to get artist names
         const artists = [];
-        for (i=0; i<music.length; i++) {
-        artists.push(music[i].track.artists[0].name)
+        for (i=0; i<musicJson.length; i++) {
+        artists.push(musicJson[i].track.artists[0].name)
         }
         const artistsString = artists.join(',')
         console.log(artistsString);
