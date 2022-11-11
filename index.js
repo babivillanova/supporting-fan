@@ -39,7 +39,7 @@ const scopes = [
 ];
 
 const spotifyApi = new SpotifyWebApi({
-  redirectUri: 'https://supporting-7m1xrgato-babivillanova.vercel.app/callback',
+  redirectUri: 'https://supporting-7m1xrgato-babivillanova.vercel.app/login/callback',
   clientId: '0c1de2a0cc87495e848c68af37f8ea07',
   clientSecret: 'e7be1ae6f8c5458d8d8757e28922f427'
 });
