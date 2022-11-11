@@ -39,7 +39,7 @@ const scopes = [
 ];
 
 const spotifyApi = new SpotifyWebApi({
-  redirectUri: 'https://supporting-7m1xrgato-babivillanova.vercel.app/login/callback',
+  redirectUri: 'http://localhost:8888/callback/',
   clientId: '0c1de2a0cc87495e848c68af37f8ea07',
   clientSecret: 'e7be1ae6f8c5458d8d8757e28922f427'
 });
@@ -134,7 +134,7 @@ app.get('/callback', (req, res) => {
 
 app.listen(8888, () =>
   // open new window in browser without having to click on link
-  require('open')('https://supporting-7m1xrgato-babivillanova.vercel.app/login')
+  require('open')('http://localhost:8888/login')
   //   console.log(
   //   'HTTP Server up. Now go to http://localhost:8888/login in your browser.'
   // )
