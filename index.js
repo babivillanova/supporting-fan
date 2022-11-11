@@ -85,17 +85,20 @@ app.get('/callback', (req, res) => {
           limit : 20
         });
         musicJson = JSON.stringify(music.body.items); 
+        musicData = JSON.parse(musicJson);
         // (artist1,artist2,artist3)
         console.log(me);
-        console.log(musicJson);
+        // console.log(musicJson);
+        // console.log(musicData[0].track.artists[0].name);
         //map musicJson to get artist names
         const artists = [];
-        for (i=0; i<musicJson.length; i++) {
-        artists.push(musicJson[i].track.artists[0].name)
+        for (i=0; i<musicData.length; i++) {
+        artists.push(musicData[i].track.artists[0].name)
         }
-        const artistsString = artists.join(',')
+        artistsString = artists.join(',')
         console.log(artistsString);
-
+        //export artistsString to call from html
+        module.exports = artistsString;
         
       })().catch(e => {
         console.error(e);
@@ -116,9 +119,9 @@ app.get('/callback', (req, res) => {
       // res.send('Success! You can now close the window.');
       //create timeout res.send 
       setTimeout(function() {
-        res.send(artistsString);
+        res.send(artistsString );
         // res.sendFile('music.html', { root: __dirname });
-      }, 1000);
+      }, 2000);
 
      
 
